@@ -11,10 +11,7 @@ $query_builder = TRUE;
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 if($conn -> connect_errno){
     echo 'mySQL CONNECTION FAILURE'.$conn -> connect_errno;
-    exit()
-}else {echo 'mySQL connection successful';
-}
-
-echo "works!"
+    exit();
+}else echo 'works!!';
 $conn -> close();
 ?>
