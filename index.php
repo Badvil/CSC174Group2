@@ -14,7 +14,7 @@
             <form action="insert.php" method="get">
             <tr>
                 <th>Merchandise</th>
-                <td><input type="text" name = "sku" placeholder="Enter SKU (8)"></td>
+                <td><input type="text" name = "sku" placeholder="Enter SKU (8)" maxlength = '8'></td>
             </tr>
             <tr>
                 <td><button type>Submit</button> </td>
