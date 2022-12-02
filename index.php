@@ -13,7 +13,7 @@
         <div class="table list">
             <table>
                 <tr>
-                    <th>SNACK AMOUNT</th>
+                    <th>Merchandise Amount</th>
                 </tr>
                 <tr>
                     <td>__</td>
@@ -25,7 +25,7 @@
         <table>
             <form action="insert.php" method="post">
             <tr>
-                <th>Snacks</th>
+                <th>Merchandise</th>
                 <td><input type="test" placeholder="Enter SKU (8)"></td>
             </tr>
             <tr>
