@@ -9,24 +9,12 @@
 
 <body>
     <center><h1>Brushlands</h1></center>
-    <div class="container">
-        <div class="table list">
-            <table>
-                <tr>
-                    <th>Merchandise Amount</th>
-                </tr>
-                <tr>
-                    <td>__</td>
-                </tr>
-            </table>
-        </div>
-    </div>
     <div class="table form">
         <table>
-            <form action="insert.php" method="post">
+            <form action="insert.php" method="get">
             <tr>
                 <th>Merchandise</th>
-                <td><input type="test" placeholder="Enter SKU (8)"></td>
+                <td><input type="text" name = "sku" placeholder="Enter SKU (8)"></td>
             </tr>
             <tr>
                 <td><button type>Submit</button> </td>
@@ -34,6 +22,33 @@
             </form>
         </table>
     </div>
-    <div class="table count"></div>
+    <h2> SKU </h2>
+    <table>
+        <?php
+            // we used ClearDB provided by Heroku for our DB
+            $host = "us-cdbr-east-06.cleardb.net";
+            $user = "b2262c566d4a43";
+            $pass = "cefdaa0f";
+            $db = "heroku_306b8584a14114c";
+            $conn = new mysqli($host, $user, $pass, $db);
+            if($conn -> connect_errno){ // DB error checking
+                echo 'MySQL connection failed e.e'.$conn -> connect_errno;
+                exit();
+            }//else echo 'it works!!<br>';
+
+            $selectAll = "SELECT * FROM MERCHANDISE"; // select all rows in merchandiset able
+            $result = $conn -> query($selectAll);
+
+            if($result -> num_rows > 0){ // if there is at least 1 row
+                while($row = $result -> fetch_assoc()) { // fetch next row if there is one
+                    echo "<tr><td>" . $row['SKU'] . "</td></tr>";
+                }
+            }else echo "Nothing!<br></br>"; // else display that there is nothing
+
+            $conn -> close();
+            
+
+        ?>
+    </table>
 </div>
 </body>
