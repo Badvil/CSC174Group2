@@ -45,7 +45,8 @@
                     echo "<tr><td>" . $row['SKU'] . "</td></tr>";
                 }
             }else echo "Nothing!<br></br>"; // else display that there is nothing
-
+            
+            $prepped_stmt -> close();
             $conn -> close();
             
 
