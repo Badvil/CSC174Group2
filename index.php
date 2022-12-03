@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initail-scale+1.0">
-    <link rel+"stylesheet" href+style.css">
-    <title>Brushlands</title>
-</html>
 
 <body>
     <center><h1>Brushlands</h1></center>
@@ -13,7 +7,7 @@
         <table>
             <form action="insert.php" method="get">
             <tr>
-                <th>Merchandise</th>
+                <th>Enter Movie SKU here:</th>
                 <td><input type="text" maxlength = "8" name = "sku" placeholder="Enter SKU (8)"></td>
             </tr>
             <tr>
@@ -22,8 +16,12 @@
             </form>
         </table>
     </div>
-    <h2> SKU </h2>
+    <h2> Movie Table</h2>
     <table>
+        <tr>
+                <th>SKU</th>
+                <th>MOVIE_NAME</th>
+        </tr>
         <?php
             // we used ClearDB provided by Heroku for our DB
             $host = "us-cdbr-east-06.cleardb.net";
@@ -36,13 +34,16 @@
                 exit();
             }//else echo 'it works!!<br>';
 
-            $prepped_stmt = $conn -> prepare("SELECT * FROM merchandise");
+            $prepped_stmt = $conn -> prepare("SELECT * FROM movie");
             $prepped_stmt -> execute();
             $result = $prepped_stmt -> get_result();
 
             if($result -> num_rows > 0){ // if there is at least 1 row
                 while($row = $result -> fetch_assoc()) { // fetch next row if there is one
-                    echo "<tr><td>" . $row['SKU'] . "</td></tr>";
+                    echo "<tr>
+                            <td>" . $row['SKU'] . "</td>
+                            <td>". $row['MOVIE_NAME']."</td>
+                        </tr>";
                 }
             }else echo "Nothing!<br></br>"; // else display that there is nothing
             

@@ -13,11 +13,17 @@
      $sku = str_pad($sku, 8, "0", STR_PAD_LEFT); // if user inputs a number with less than 8 digits, pad the left with 0
      //echo $sku;
      
-     if($prepped_stmt = $conn -> prepare("INSERT INTO merchandise VALUES (?)")){ // sql stuff
+     if($prepped_stmt = $conn -> prepare("INSERT INTO merchandise(SKU) VALUES (?)")){ // sql stuff
          $prepped_stmt -> bind_param("s", $sku);
          $prepped_stmt -> execute(); 
+
+         $prepped_stmt = $conn -> prepare("INSERT INTO movie(SKU) VALUES (?)");
+         $prepped_stmt -> bind_param("s", $sku);
+         $prepped_stmt -> execute(); 
+
          $prepped_stmt -> close();
          header("Location: index.php");
+         //echo 'works?';
      } else{
          echo "Something went wrong with prep statement...";
      }
