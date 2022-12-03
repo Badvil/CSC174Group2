@@ -5,7 +5,7 @@
 
 ## Full File Paths:
 
-  ### SQL Create Tables 
+  ### SQL Create Tables: 
   
 CREATE TABLE EMPLOYEE(
     ID char(8) NOT NULL PRIMARY KEY
