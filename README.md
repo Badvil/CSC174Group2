@@ -49,9 +49,9 @@ CREATE TABLE SELLS (
     CONSTRAINT sells_pk PRIMARY KEY (ID, SKU)
     );
 
-  ### SQL Insert File Path: /insert.php
+  ### SQL Insert File Path: CSC174Group2/insert.php
   
-  ### SQL Select File Path: /CSC174Group2/index.php
+  ### SQL Select File Path: CSC174Group2/index.php
 
 ## Steps to test website:
 
