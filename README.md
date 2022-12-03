@@ -49,6 +49,14 @@ CREATE TABLE SELLS (
     CONSTRAINT sells_pk PRIMARY KEY (ID, SKU)
     );
 
-  ### SQL Inserts:
+  ### SQL Insert File Path: /insert.php
   
-  ### SQL Selects:
+  ### SQL Select File Path: /CSC174Group2/index.php
+
+## Steps to test website:
+
+1. Click URL and go to the webpage.
+2. Enter a SKU number in the text box and click the submit button.
+3. Webpage will refresh and display the added SKU number in the table.
+
+
