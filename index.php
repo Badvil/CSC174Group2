@@ -36,8 +36,9 @@
                 exit();
             }//else echo 'it works!!<br>';
 
-            $selectAll = "SELECT * FROM MERCHANDISE"; // select all rows in merchandiset able
-            $result = $conn -> query($selectAll);
+            $prepped_stmt = $conn -> prepare("SELECT * FROM merchandise");
+            $prepped_stmt -> execute();
+            $result = $prepped_stmt -> get_result();
 
             if($result -> num_rows > 0){ // if there is at least 1 row
                 while($row = $result -> fetch_assoc()) { // fetch next row if there is one
