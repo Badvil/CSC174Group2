@@ -12,14 +12,18 @@
      $sku = $_GET["sku"]; // get the number inputted from HTML form
      $sku = str_pad($sku, 8, "0", STR_PAD_LEFT); // if user inputs a number with less than 8 digits, pad the left with 0
      //echo $sku;
-     $sql = "INSERT INTO merchandise VALUES ('$sku')";
-     $insert = $conn -> query($sql);
-     if(!$insert){
-        echo "Error dude: " .$sql. "<br>" .$conn->error;
-     }else{ 
-        echo "hey it works!";
-        header("Location: index.php");
+     
+     if($prepped_stmt = $conn -> prepare("INSERT INTO merchandise VALUES (?)")){ // sql stuff
+         $prepped_stmt -> bind_param("s", $sku);
+         $prepped_stmt -> execute(); 
+         $prepped_stmt -> close();
+         header("Location: index.php");
+     } else{
+         echo "Something went wrong with prep statement...";
      }
 
+
+    
+     $conn -> close();
      
 ?>
