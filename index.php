@@ -8,7 +8,7 @@
             <form action="insert.php" method="get">
             <tr>
                 <th>Enter Movie SKU here:</th>
-                <td><input type="text" maxlength = "8" name = "sku" placeholder="Enter SKU (8)"></td>
+                <td><input type="text" maxlength = "8" name = "sku" placeholder="Enter SKU (8)" required></td>
             </tr>
             <tr>
                 <td><button type>Submit</button> </td>
